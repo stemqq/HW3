@@ -1,0 +1,109 @@
+
+<!--
+File: multi_tables.html
+GUI Assignment: Multiplication table generator
+Ssuna Mulindwa, UMass Lowell Computer Science, ssuna_mulindwa@student.uml.edu
+Copyright (c) 2021 by ssunaMulindwa. All rights reserved. May be freely copied or
+excerpted for educational purposes with credit to the author.
+updated by SM on July 31, 2021 at 9:23 AM
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Multiplication Table Generator</title>
+
+
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var CLICK_COUNT = 0;
+
+    document.getElementById("submit").addEventListener("click", generateTable);
+
+    function generateTable () {
+      CLICK_COUNT++;
+
+      var table = document.createElement("table");
+      document.body.appendChild(table);
+
+      var xB_num = parseInt(document.getElementById("xBegin").value);
+      var xE_num = parseInt(document.getElementById("xEnd").value);
+      var yB_num = parseInt(document.getElementById("yBegin").value);
+      var yE_num = parseInt(document.getElementById("yEnd").value);
+
+
+
+      //var result = ' x   ';
+
+      function buff(val){
+        var buff = '';
+        var pad = 4 - val;
+        while( pad-- > 0 )
+            buff += ' ';
+            return buff;
+      }
+
+      for (var i = 0; i < xB_num; i++) {
+        for (var j = 0; j < yB_num; j++) {
+          if(i == 0 && j > 0){
+            result += '[' + j + ']' + buff((j+'').length+2);
+          }
+          else if(j == 0 && i>0){
+            result += '[' + i + ']';
+          }
+          else if(i>0 && j>0){
+            result += buff((i*j+'').length ) + i*j;
+          }
+        }
+    //    result += '\n'
+    }
+
+
+
+    }
+
+  });
+
+
+</script>
+
+
+</head>
+
+<body>
+  <h2 id="h2Title">Multiplication Table Generator</h2>
+
+  <p id="paraPrevNext"></p>
+  <fieldset>
+    <legend>&nbsp;Please enter the table ranges&nbsp;</legend>
+    <form id="frm" action="" method="GET">
+      <table id="tblForm">
+        <tr>
+          <td>Minimum Column Value</td>
+          <td><input type="text" id="xBegin" name="xBegin" placeholder="Enter value between -50 to 50"></td>
+        </tr>
+        <tr>
+          <td>Maximum Column Value</td>
+          <td><input type="text" id="xEnd" name="xEnd" placeholder="Enter value between -50 to 50"></td>
+        </tr>
+        <tr>
+          <td>Minimum Row Value</td>
+          <td><input type="text" id="yBegin" name="yBegin" placeholder="Enter value between -50 to 50"></td>
+        </tr>
+        <tr>
+          <td>Maximum Row Value</td>
+          <td><input type="text" id="yEnd" name="yEnd" placeholder="Enter Number value -50 to 50"></td>
+        </tr>
+        <tr>
+          <td colspan="2"><input type="Submit" value="Regenerate Table"></td>
+        </tr>
+      </table>
+    </form>
+  </fieldset>
+  <div id="placeholder"></div>
+  <p id="msg"></p>
+</body>
+</html>
