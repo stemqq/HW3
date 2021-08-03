@@ -13,6 +13,8 @@ I was not able to things to work. I have the JS still together in the same file 
 rest because I was still working on the code. am was challenged.
 I was not able to work on the CSS file too because I was already behind in time.
 
+find the link to the github site below 
 
+https://stemqq.github.io/HW3/
 
 
